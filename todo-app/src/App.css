@@ -1,0 +1,29 @@
+.div-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.todo {
+  overflow-y: auto;
+  height: 33rem;
+}
+
+.todo-list:hover {
+  background-color: whitesmoke;
+  cursor: pointer;
+} 
+
+.line-through {
+  text-decoration: line-through;
+}
+
+@media (max-width: 720px) {
+  .div-container {
+    width: 80%;
+  }
+
+  .todo {
+    overflow-y: auto;
+    height: 42rem;
+  }
+}
