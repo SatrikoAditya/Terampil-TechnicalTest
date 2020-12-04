@@ -1,21 +1,15 @@
 import {Button} from 'react-bootstrap'
-import {deleteFromDB, getById, updateDoneToDB} from '../store/actions/'
+import {deleteFromDB, updateDoneToDB} from '../store/actions/'
 import {useDispatch} from 'react-redux'
-import {useHistory} from 'react-router-dom'
+import {ModalUpdate} from './index'
 import moment from 'moment'
 
 export default function TodoList({todo}) {
   const dispatch = useDispatch()
-  const history = useHistory()
   const {id, title, description, due_date, isDone} = todo
 
   const handleDelete = (id) => {
     dispatch(deleteFromDB(id))
-  }
-
-  const handleUpdate = (id) => {
-    dispatch(getById(id))
-    history.push(`/update/${id}`)
   }
 
   const handleDone = (id, title, description, due_date, isDone) => {
@@ -32,8 +26,8 @@ export default function TodoList({todo}) {
             <p><b>Due date:</b> {moment(due_date).format('LL')} </p>
           </div>
           <div>
-            <Button variant="success" onClick={() => handleUpdate(id)} size="sm" type="button">Update</Button>
-            <Button onClick={() => handleDelete(id)} className="ml-2" variant="danger" size="sm" type="button">Delete</Button>
+            <ModalUpdate id={id} />
+            <Button onClick={() => handleDelete(id)} variant="danger" size="sm" type="button">Delete</Button>
           </div>
         </div>
       </li>}
@@ -46,8 +40,7 @@ export default function TodoList({todo}) {
             <p className="line-through"><b>Due date:</b> {moment(due_date).format('LL')} </p>
           </div>
           <div>
-            <Button variant="success" onClick={() => handleUpdate(id)} size="sm" type="button">Update</Button>
-            <Button onClick={() => handleDelete(id)} className="ml-2" variant="danger" size="sm" type="button">Delete</Button>
+            <Button onClick={() => handleDelete(id)} variant="danger" size="sm" type="button">Delete</Button>
           </div>
         </div>
       </li>}

@@ -1,12 +1,9 @@
 import {useEffect} from 'react'
-import {TodoList} from '../components/'
-import {Button} from 'react-bootstrap'
-import {useHistory} from 'react-router-dom'
+import {TodoList, ModalAdd} from '../components/'
 import {useDispatch, useSelector} from 'react-redux'
 import {getTodo} from '../store/actions/'
 
 export default function Home() {
-  const history = useHistory()
   const dispatch = useDispatch()
   const todos = useSelector((state) => state.todos)
 
@@ -14,24 +11,17 @@ export default function Home() {
     dispatch(getTodo())
   }, [dispatch])
 
-  const toAdd = () => {
-    history.push('/add')
-  }
-
   return (
     <div className="row justify-content-center mt-3 pt-5">
       <div className="div-container">
         <h4>
           <b>My Todo List</b>
-          <Button
-            variant="primary" 
-            size="sm" 
-            className="btn float-right"
-            onClick={toAdd}>
-              Create Todo
-          </Button>
+          <ModalAdd />
         </h4>
-        <ul id="todo-container" className="list-unstyled todo">
+        {todos.length === 0 && <div className="div-container mt-5">
+          <h5><b>There's Nothing To Do</b></h5>
+        </div>}
+        {todos.length > 0 && <ul id="todo-container" className="list-unstyled todo">
           {
             todos.map(todo => {
               return (
@@ -39,7 +29,7 @@ export default function Home() {
               )
             })
           }
-        </ul>
+        </ul>}
       </div>
     </div>
   )

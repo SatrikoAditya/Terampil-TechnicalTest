@@ -13,7 +13,7 @@ function reducer(state = todoState, action) {
     case ADD_TODO:
       return {
         ...state, 
-        todos: state.todos.concat({...state.todos, id: state.todos.length + 1})
+        todos: state.todos.concat({...action.payload, id: state.todos.length + 1})
       }
     case DELETE_TODO:
       return {

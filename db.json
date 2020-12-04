@@ -1,18 +1,11 @@
 {
   "todos": [
     {
-      "id": 1,
-      "title": "Membuat Nasi Goreng",
-      "due_date": "2020-12-03",
+      "title": "Masak Nasi Goreng",
       "description": "Belajar memasak nasi goreng dengan tutorial dan resep dari internet",
-      "isDone": false
-    },
-    {
-      "id": 2,
-      "title": "Olahraga",
-      "due_date": "2020-12-03",
-      "description": "Berolahraga di lapangan untuk menyehatkan badan",
-      "isDone": false
+      "due_date": "2020-12-05",
+      "isDone": false,
+      "id": 1
     }
   ]
 }
