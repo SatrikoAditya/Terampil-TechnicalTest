@@ -89,7 +89,7 @@ export default function ModalUpdate({id}) {
                 onChange={(event) => setDescription(event.target.value)} 
                 as="textarea" 
                 rows={3}
-                placeholder="Input Title Here..." />
+                placeholder="Input Description Here..." />
               {inputError && <h6> {inputError} </h6>}
             </Form.Group>
           </Form>
