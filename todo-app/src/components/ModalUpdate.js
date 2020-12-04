@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react'
 import {Modal, Form, Button} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
 import {updateToDB, getById} from '../store/actions/'
+import moment from 'moment'
 
 export default function ModalUpdate({id}) {
   const dispatch = useDispatch()
@@ -41,6 +42,8 @@ export default function ModalUpdate({id}) {
     }
     if(!title || !description || !due_date) {
       setInputError('All Field is Required!')
+    } else if(moment(moment(due_date).format('LL')).isBefore(moment(new Date()).format('LL'))) {
+      setInputError(`Date must be greater than yesterday's date!`)
     } else {
       dispatch(updateToDB(payload))
       handleClose()
