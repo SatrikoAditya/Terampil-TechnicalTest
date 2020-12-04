@@ -1,11 +1,32 @@
 {
   "todos": [
     {
-      "title": "Masak Nasi Goreng",
-      "description": "Belajar memasak nasi goreng dengan tutorial dan resep dari internet",
-      "due_date": "2020-12-05",
+      "title": "Memasak nasi goreng",
+      "description": "Belajar Memasak nasi goreng dengan tutorial dan resep dari internet",
+      "due_date": "2020-12-09",
       "isDone": false,
       "id": 1
+    },
+    {
+      "title": "Olahraga",
+      "description": "Berolahraga di lapangan dengan berlari",
+      "due_date": "2020-12-06",
+      "isDone": true,
+      "id": 2
+    },
+    {
+      "title": "Memancing",
+      "description": "Memancing di laut dengan teman",
+      "due_date": "2020-12-13",
+      "isDone": false,
+      "id": 3
+    },
+    {
+      "title": "Pergi ke gunung semeru",
+      "description": "Pergi hiking ke gunung semeru selama 4 hari",
+      "due_date": "2020-12-31",
+      "isDone": false,
+      "id": 4
     }
   ]
 }
